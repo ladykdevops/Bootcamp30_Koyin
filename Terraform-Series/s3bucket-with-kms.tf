@@ -3,12 +3,22 @@ resource "aws_kms_key" "kskey" {
   deletion_window_in_days = 10
 }
 
-resource "aws_s3_bucket" "bootcamp30-2-koyin" {
-  bucket = "bootcamp30-2-koyin"
+
+resource "random_id" "id" {
+    byte_length = 8
+}
+
+variable "myname" {
+    type = string
+    default = "koyin"
+}
+
+resource "aws_s3_bucket" "bootcamp30-RN-koyin" {
+  bucket = "bootcamp30-${random_id.id.hex}-${var.myname}"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "sseconfig" {
-  bucket = aws_s3_bucket.bootcamp30-2-koyin.id
+  bucket = aws_s3_bucket.bootcamp30-RN-koyin.id
 
   rule {
     apply_server_side_encryption_by_default {
