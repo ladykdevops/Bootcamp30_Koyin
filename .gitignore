@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 **/.DS_Store
 .terraform/
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfvars
 .terraform.lock.hcl
+=======
+**/.DS_Store
+>>>>>>> 5435fca (add gitignore file)
